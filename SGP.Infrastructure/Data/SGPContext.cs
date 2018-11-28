@@ -28,7 +28,14 @@ namespace SGP.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Categoria>().ToTable("TbCategoria");
+
+            modelBuilder.Entity<Categoria>()
+                .Property(x => x.Descricao)
+                .HasColumnType("varchar(200)");
+
+            modelBuilder.Entity<Produto>().ToTable("TbProduto");
+
         }
     }
 }
